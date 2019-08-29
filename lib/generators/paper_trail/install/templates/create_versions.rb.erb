@@ -10,6 +10,7 @@ class CreateVersions < ActiveRecord::Migration<%= migration_version %>
 
   def change
     create_table :versions<%= versions_table_options %> do |t|
+      t.string   :uuid, limit: 36, primary: true, unique: true, null: false
       t.string   :item_type<%= item_type_options %>
       t.integer  :item_id,   null: false, limit: 8
       t.string   :event,     null: false
@@ -31,6 +32,13 @@ class CreateVersions < ActiveRecord::Migration<%= migration_version %>
       #
       t.datetime :created_at
     end
+
+    reversible do |dir|
+      dir.up {
+        execute "ALTER TABLE versions ADD PRIMARY KEY (uuid);"
+      }
+    end
+
     add_index :versions, %i(item_type item_id)
   end
 end

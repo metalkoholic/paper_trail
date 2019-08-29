@@ -32,6 +32,7 @@ has been destroyed.
   # See discussion in paper_trail/compatibility.rb
   s.add_dependency "activerecord", ::PaperTrail::Compatibility::ACTIVERECORD_GTE
   s.add_dependency "request_store", "~> 1.1"
+  s.add_dependency "uuidtools"
 
   s.add_development_dependency "appraisal", "~> 2.2"
   s.add_development_dependency "byebug", "~> 11.0"

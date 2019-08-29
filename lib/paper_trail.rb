@@ -13,6 +13,7 @@ require "active_support/all"
 # AR is loaded here before loading *any* of PT. See discussion of
 # performance/simplicity tradeoff for activesupport above.
 require "active_record"
+require "uuidtools"
 
 require "request_store"
 require "paper_trail/cleaner"
@@ -26,6 +27,7 @@ require "paper_trail/version_concern"
 require "paper_trail/version_number"
 require "paper_trail/serializers/json"
 require "paper_trail/serializers/yaml"
+require "paper_trail/uuid_helper"
 
 # An ActiveRecord extension that tracks changes to your models, for auditing or
 # versioning.

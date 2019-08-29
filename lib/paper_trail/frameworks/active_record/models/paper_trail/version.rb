@@ -1,6 +1,7 @@
 # frozen_string_literal: true
 
 require "paper_trail/version_concern"
+require "paper_trail/uuid_helper"
 
 module PaperTrail
   # This is the default ActiveRecord model provided by PaperTrail. Most simple
@@ -12,5 +13,6 @@ module PaperTrail
   # `VersionAssociation`.
   class Version < ::ActiveRecord::Base
     include PaperTrail::VersionConcern
+    include PaperTrail::UuidHelper
   end
 end
